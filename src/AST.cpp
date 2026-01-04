@@ -242,8 +242,8 @@ Decl* C2FFIASTConsumer::make_decl(const clang::VarDecl* d, bool is_toplevel)
     if(d->hasInit()) {
         if(!d->getType()->isDependentType()) {
             clang::EvaluatedStmt* stmt = d->ensureEvaluatedStmt();
-            clang::Expr*          e    = clang::cast<clang::Expr*>(stmt->Value);
-            if(!e->isValueDependent() && ((v = d->evaluateValue()) || (v = d->getEvaluatedValue()))) {
+            const clang::Expr*    e    = d->getInit();
+            if(e && !e->isValueDependent() && ((v = d->evaluateValue()) || (v = d->getEvaluatedValue()))) {
                 if(v->isLValue()) {
                     clang::APValue::LValueBase base = v->getLValueBase();
                     if(!base.isNull() && base.is<const clang::Expr*>()) {
