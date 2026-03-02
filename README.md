@@ -8,6 +8,7 @@ LLVM/Clang:
 * 16.0.6: branch `llvm-16.0.0` *old*
 * 17.0.6: branch `llvm-17.0.0` *current*
 * 18.1.x: branch `llvm-18.1.0` *current*
+* 19.1.x: branch `llvm-19.1.0` *current*
 
 Development will always take place in `llvm-X.Y`, according to the
 appropriate version of LLVM.  **The *master* branch has been

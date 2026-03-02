@@ -12,10 +12,10 @@ RUN wget -qO- https://apt.llvm.org/llvm-snapshot.gpg.key | tee /etc/apt/trusted.
 # Install add-apt-repository
 RUN apt-get install -y software-properties-common
 
-# Add llvm 18 repository with sources
-RUN add-apt-repository -s -y "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-18 main"
+# Add llvm 19 repository with sources
+RUN add-apt-repository -s -y "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-19 main"
 
-RUN echo apt-get update && apt-get install -y llvm-18 clang-18 libclang-18-dev libclang-cpp18-dev python3-pip
+RUN echo apt-get update && apt-get install -y llvm-19 clang-19 libclang-19-dev libclang-cpp19-dev python3-pip
 
 # Easiest way to get sufficiently new cmake appears to be using pip - Ubuntu 20.10 version is too old
 RUN pip3 install --upgrade cmake
